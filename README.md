@@ -1,25 +1,38 @@
-# Букет Молдавии — сайт
+# Buket Moldavii — Astro Foundation v1
 
-Статическая адаптивная страница на HTML, CSS и JavaScript.
+Основа: `Buket_Moldavii_v2.zip`. Дизайн и содержание существующей главной страницы сохранены.
 
-## Просмотр локально
+## Запуск
 
-Откройте `index.html` в браузере. Для локального HTTP-просмотра из этой папки можно выполнить:
+Нужен Node.js 20.19+ или 22.12+.
 
 ```bash
-python3 -m http.server 4173
+npm install
+npm run dev
+npm run build
 ```
 
-Затем откройте `http://localhost:4173`.
+Откройте адрес, показанный командой `npm run dev` (обычно `http://localhost:4321`).
 
-## Публикация через GitHub и Cloudflare Pages
+## Cloudflare Pages
 
-1. Создайте новый GitHub-репозиторий и загрузите в него содержимое этой папки. Корневой `index.html` должен находиться в корне репозитория.
-2. В Cloudflare Dashboard откройте **Workers & Pages → Create application → Pages → Connect to Git**.
-3. Подключите GitHub и выберите созданный репозиторий.
-4. Для этой статической страницы оставьте команду сборки пустой, укажите каталог сборки `.` (корень репозитория) и не меняйте Root directory.
-5. Нажмите **Save and Deploy**. Последующие изменения в выбранной production-ветке Cloudflare будет публиковать автоматически.
+- Framework preset: **Astro**
+- Build command: **npm run build**
+- Build output directory: **dist**
+- Root directory: **/**
 
-Репозиторий можно оставить приватным: публичный сайт будет размещаться на Cloudflare Pages.
+В GitHub загружайте **содержимое этой папки в корень ветки `astro-development`**, а не ZIP-файл и не вложенную папку.
 
-Официальная инструкция: https://developers.cloudflare.com/pages/configuration/git-integration/github-integration/
+## Структура
+
+- `src/pages/index.astro` — главная страница, исходные секции.
+- `src/components/Header.astro` — шапка/hero и меню.
+- `src/components/Footer.astro` — подвал.
+- `src/layouts/BaseLayout.astro` — общий HTML, метаданные, шрифты и скрипт.
+- `src/styles/styles.css` — утверждённые стили.
+- `src/scripts/main.js` — поведение мобильного меню.
+- `public/assets/` — исходные изображения.
+
+## Границы этапа
+
+Это **только миграция основы**, не разработка каталога. Страницы товаров, языковые версии, маршруты и SEO-шаблоны будут проектироваться на следующем этапе после согласования карты сайта и модели данных. Ссылки-якоря главной страницы пока сохранены. Проверки сборки, мобильного меню и визуального соответствия обязательны до публикации.
